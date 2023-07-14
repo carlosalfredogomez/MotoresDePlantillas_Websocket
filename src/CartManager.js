@@ -49,7 +49,7 @@ class CartManager {
                 return cart
             })
             .catch((error) => {
-                return 'Error: No existe la cart'
+                return 'Error: No existe'
             })
     }
 
@@ -57,20 +57,16 @@ class CartManager {
         return this.getCarts()
             .then((carts) => {
                 const cartIndex = carts.findIndex(cart => cart.id === cid)
-                if (cartIndex !== -1) { //SI EXISTE EL cart
-                    //TOMAR EL ARRAY DE PRODUCTOS DEL CART
+                if (cartIndex !== -1) { 
                     const products = carts[cartIndex].products
-                    //BUSCAR EN EL ARRAY DE PRODUCTOS EL NUEVO PRODUCTO
                     let product = products.find(p=>p.id === pid)
                     if (product === undefined){
                         product = {
                             id: pid,
                             quantity: 1
                         }    
-                        //SE AGREGA EL NUEVO PRODUCTO
                         carts[cartIndex].products.push(product)
                     }else{
-                        //SI EXISTE, SE ACTUALIZA LA CANTIDAD
                         product.quantity = product.quantity + 1
                     }
                     fs.promises.writeFile(this.path, JSON.stringify(carts, null, 2))

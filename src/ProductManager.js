@@ -24,22 +24,7 @@ class ProductManager {
             })
     }
 
-    //ESta forma no se si funciona
-    /*
-    async loadInventory(){
-        try{
-            const productsString = await fs.promise.readFile('product.json', 'utf8')
-            const products = json.parse(productsString)
-            return products
-        }
-        catch(error){
-            log('Error al obtener la lista los productos')
-            throw error
-        }
-
-    }
-    */
-
+ 
     addProduct(data) {
         if (!data.title
             || !data.description
@@ -136,7 +121,7 @@ class ProductManager {
         return fs.promises.writeFile(this.path, JSON.stringify(products, null, 2))
             .then(() => { })
             .catch((error) => {
-                return 'Error: No se pudo eliminar todos los productos del archivo'
+                return 'Error: No se pudo eliminar los productos del archivo'
             })
     }
 }

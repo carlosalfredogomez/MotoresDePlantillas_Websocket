@@ -6,7 +6,7 @@ const init = (httpServer) => {
 
     //CADA VES QUE SE CONECTA UN CLIENTE
     io.on('connection', socket => {
-        console.log(`Nuevo cliente conectado: ${socket.id} 👌`)
+        console.log(`Nuevo cliente: ${socket.id} `)
     })
 
     return io

@@ -17,7 +17,7 @@ app.engine('handlebars', handlebars.engine())
 app.set('views', '../src/views')
 app.set('view engine', 'handlebars')
 
-const httpServer = app.listen(PORT, () => { console.log(`Servidor corriendo en el puerto ${PORT} 🚀`) })
+const httpServer = app.listen(PORT, () => { console.log(`Servidor corriendo en el puerto ${PORT}`) })
 const io = socketServer(httpServer)
 
 app.use('/api/products', productsRouter)

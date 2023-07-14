@@ -13,7 +13,7 @@ viewsRouter.get('/healtcheck', (req, res) => {
 //VISTA DE PRODUCTOS
 viewsRouter.get('/home', (req, res) => {
     res.render('home', {
-        title: "Listado de Productos"
+        title: "Lista de Productos"
     })
 })
 
